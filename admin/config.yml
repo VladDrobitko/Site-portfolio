@@ -1,0 +1,194 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+# These lines should *not* be indented
+media_folder: "static/images" # Media files will be stored in the repo under static/images
+public_folder: "/images" # The src attribute for uploaded media will begin with /images
+
+collections:
+  - name: "config"
+    label: "Site Configuration"
+    files:
+      - file: "site-config.json"
+        label: "Site Settings"
+        name: "site"
+        fields:
+          - {label: "Site Title", name: "title", widget: "string", default: "Vlad Drobitko - Premium Video Creator"}
+          - {label: "Site Description", name: "description", widget: "text", default: "Premium video production, editing, and creative direction"}
+          - {label: "Contact Email", name: "email", widget: "string", default: "boss.drobitko@gmail.com"}
+          - {label: "Phone", name: "phone", widget: "string", required: false}
+          - {label: "Location", name: "location", widget: "string", default: "Europe"}
+          
+  - name: "hero"
+    label: "Hero Section"
+    files:
+      - file: "hero-content.json"
+        label: "Hero Content"
+        name: "hero"
+        fields:
+          - {label: "Main Heading", name: "heading", widget: "string", default: "Premium Video Creator"}
+          - {label: "Subtitle", name: "subtitle", widget: "string", default: "Transforming ideas into compelling visual stories"}
+          - {label: "Description", name: "description", widget: "text", default: "I create high-end video content that captivates audiences and drives results. From concept to final cut, every frame is crafted with precision and creativity."}
+          - {label: "Primary Button Text", name: "primary_button", widget: "string", default: "Start Your Project"}
+          - {label: "Secondary Button Text", name: "secondary_button", widget: "string", default: "View Work"}
+          - {label: "Hero Video URL", name: "hero_video", widget: "string", required: false}
+
+  - name: "services"
+    label: "Services"
+    files:
+      - file: "services-content.json"
+        label: "Services Content"
+        name: "services"
+        fields:
+          - {label: "Section Title", name: "title", widget: "string", default: "Services & Pricing"}
+          - {label: "Section Description", name: "description", widget: "text", default: "Professional video production services tailored to your needs"}
+          - label: "Service Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Service Icon", name: "icon", widget: "string", default: "🎬"}
+              - {label: "Service Name", name: "name", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Price", name: "price", widget: "string"}
+              - label: "Features"
+                name: "features"
+                widget: "list"
+                field: {label: "Feature", name: "feature", widget: "string"}
+
+  - name: "portfolio"
+    label: "Portfolio"
+    files:
+      - file: "portfolio-content.json"
+        label: "Portfolio Content"
+        name: "portfolio"
+        fields:
+          - {label: "Section Title", name: "title", widget: "string", default: "Recent Work"}
+          - {label: "Section Description", name: "description", widget: "text", default: "A selection of projects that showcase creativity and technical excellence"}
+          - label: "Portfolio Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Project Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Video URL", name: "video_url", widget: "string", required: false}
+              - {label: "Thumbnail", name: "thumbnail", widget: "image", required: false}
+              - {label: "Client", name: "client", widget: "string", required: false}
+              - {label: "Year", name: "year", widget: "string", required: false}
+              - label: "Categories"
+                name: "categories"
+                widget: "list"
+                field: {label: "Category", name: "category", widget: "string"}
+
+  - name: "about"
+    label: "About Section"
+    files:
+      - file: "about-content.json"
+        label: "About Content"
+        name: "about"
+        fields:
+          - {label: "About Title", name: "title", widget: "string", default: "About Me"}
+          - {label: "About Description", name: "description", widget: "markdown"}
+          - {label: "Profile Image", name: "image", widget: "image", required: false}
+          - label: "Skills"
+            name: "skills"
+            widget: "list"
+            field: {label: "Skill", name: "skill", widget: "string"}
+          - label: "Experience"
+            name: "experience"
+            widget: "list"
+            fields:
+              - {label: "Company/Project", name: "company", widget: "string"}
+              - {label: "Role", name: "role", widget: "string"}
+              - {label: "Duration", name: "duration", widget: "string"}
+              - {label: "Description", name: "description", widget: "text", required: false}
+
+  - name: "testimonials"
+    label: "Testimonials"
+    files:
+      - file: "testimonials-content.json"
+        label: "Testimonials"
+        name: "testimonials"
+        fields:
+          - {label: "Section Title", name: "title", widget: "string", default: "What Clients Say"}
+          - label: "Testimonial Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Client Name", name: "name", widget: "string"}
+              - {label: "Client Title", name: "title", widget: "string", required: false}
+              - {label: "Company", name: "company", widget: "string", required: false}
+              - {label: "Testimonial", name: "testimonial", widget: "text"}
+              - {label: "Client Photo", name: "photo", widget: "image", required: false}
+              - {label: "Rating", name: "rating", widget: "number", min: 1, max: 5, default: 5}
+
+  - name: "contact"
+    label: "Contact Section"
+    files:
+      - file: "contact-content.json"
+        label: "Contact Content"
+        name: "contact"
+        fields:
+          - {label: "Section Title", name: "title", widget: "string", default: "Let's Create Something Amazing"}
+          - {label: "Section Description", name: "description", widget: "text", default: "Ready to bring your vision to life? Get in touch for a personalized quote."}
+          - {label: "Contact Email", name: "email", widget: "string"}
+          - {label: "Phone", name: "phone", widget: "string", required: false}
+          - {label: "Address", name: "address", widget: "text", required: false}
+          - label: "Social Media"
+            name: "social"
+            widget: "list"
+            fields:
+              - {label: "Platform", name: "platform", widget: "string"}
+              - {label: "URL", name: "url", widget: "string"}
+              - {label: "Username", name: "username", widget: "string", required: false}
+
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "featured_image", widget: "image", required: false}
+      - {label: "Excerpt", name: "excerpt", widget: "text", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        field: {label: "Tag", name: "tag", widget: "string"}
+      - {label: "SEO Title", name: "seo_title", widget: "string", required: false}
+      - {label: "SEO Description", name: "seo_description", widget: "text", required: false}
+
+  - name: "pages"
+    label: "Additional Pages"
+    files:
+      - file: "faq-content.json"
+        label: "FAQ Page"
+        name: "faq"
+        fields:
+          - {label: "Page Title", name: "title", widget: "string", default: "Frequently Asked Questions"}
+          - {label: "Page Description", name: "description", widget: "text"}
+          - label: "FAQ Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Question", name: "question", widget: "string"}
+              - {label: "Answer", name: "answer", widget: "markdown"}
+              - {label: "Category", name: "category", widget: "string", required: false}
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - file: "seo-settings.json"
+        label: "SEO Settings"
+        name: "seo"
+        fields:
+          - {label: "Default SEO Title", name: "default_title", widget: "string"}
+          - {label: "Default SEO Description", name: "default_description", widget: "text"}
+          - {label: "Keywords", name: "keywords", widget: "text"}
+          - {label: "Google Analytics ID", name: "google_analytics", widget: "string", required: false}
+          - {label: "Google Search Console", name: "google_console", widget: "string", required: false}
+          - {label: "Facebook Pixel ID", name: "facebook_pixel", widget: "string", required: false}
+          - {label: "Favicon", name: "favicon", widget: "image", required: false}
+          - {label: "Open Graph Image", name: "og_image", widget: "image", required: false}
