@@ -1,0 +1,34 @@
+# Netlify redirects file
+
+# Redirect admin to Netlify CMS
+/admin   /admin/index.html   200
+
+# Force HTTPS (optional - Netlify does this by default)
+# http://vladcreator.com/*  https://vladcreator.com/:splat  301!
+
+# Single page application fallback
+/*    /index.html   200
+
+# Contact form submission success page
+/contact/success   /index.html#contact   200
+
+# Legacy URL redirects (if you had an old website)
+# /old-portfolio   /index.html#portfolio   301
+# /services.html   /index.html#services   301
+
+# Security headers
+/*
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  
+# Cache static assets
+/style.css
+  Cache-Control: public, max-age=31536000
+  
+/script.js
+  Cache-Control: public, max-age=31536000
+
+/images/*
+  Cache-Control: public, max-age=31536000
