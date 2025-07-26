@@ -3,8 +3,8 @@
 # Redirect admin to Netlify CMS
 /admin   /admin/index.html   200
 
+# Contact form submission
+/contact   /index.html#contact   200
+
 # Single page application fallback
 /*    /index.html   200
-
-# Contact form submission success page
-/contact/success   /index.html#contact   200
