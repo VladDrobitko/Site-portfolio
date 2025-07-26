@@ -1,0 +1,28 @@
+<!-- Hidden form for Netlify form detection -->
+<form name="contact" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="name" />
+  <input type="email" name="email" />
+  <input type="text" name="company" />
+  <select name="service">
+    <option value="video-editing">Video Editing</option>
+    <option value="video-production">Video Production</option>
+    <option value="motion-design">Motion Design</option>
+    <option value="consultation">Consultation</option>
+  </select>
+  <select name="budget">
+    <option value="500-1000">€500 - €1,000</option>
+    <option value="1000-2500">€1,000 - €2,500</option>
+    <option value="2500-5000">€2,500 - €5,000</option>
+    <option value="5000+">€5,000+</option>
+  </select>
+  <select name="timeline">
+    <option value="asap">ASAP</option>
+    <option value="1-2-weeks">1-2 weeks</option>
+    <option value="1-month">1 month</option>
+    <option value="flexible">Flexible</option>
+  </select>
+  <textarea name="message"></textarea>
+  <input type="checkbox" name="gdpr-consent" />
+  <input type="checkbox" name="client-agreement" />
+  <input type="checkbox" name="marketing-consent" />
+</form>
